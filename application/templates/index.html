@@ -1,0 +1,36 @@
+{%extends "base.html"%}
+
+{% block content%}
+<div class="content">
+	<div class="create">
+		<div><a href="/create"><button>New Application</button></a></div>
+		<div><p>Click the above button to post new application</p></div>
+	</div>
+	{% if request.user.is_authenticated %}
+	<div class="details">
+		<table>
+			<thead>
+		        <th>Email</th>
+		        <th>First Name</th>
+		        <th>Last Name</th>
+		        <th>Current Company</th>
+		        <th>Skills</th>
+		        <th>Action</th>
+	      	</thead>
+		    <tbody>
+	        	{% for application in applications %}
+		        <tr>
+			        <td>{{ application.email }}</td>
+			        <td>{{ application.first_name }}</td>
+			        <td>{{ application.last_name }}</td>
+			        <td>{{ application.current_company }}</td>
+			        <td>{{ application.skills }}</td>
+			        <td>test</td>
+		        </tr>
+	        	{% endfor %}
+	        </tbody>
+	    </table>
+	</div>
+	{% endif %}
+</div>
+{% endblock %}

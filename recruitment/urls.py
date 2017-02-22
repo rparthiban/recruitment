@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.contrib.auth import views
+
+from application.views import IndexView, CreateView 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', IndexView.as_view(), name='index'),
+    url(r'^create/$', CreateView.as_view(), name='create'),
+    url(r'^login/$', views.login, {'template_name': 'login.html'}, name='login'),
+    url(r'^logout/$', views.logout, {'next_page': '/'}, name='logout'),
 ]
