@@ -1,4 +1,7 @@
+import json
+
 from django.shortcuts import render
+from django.http import HttpResponse
 from django.views.generic import TemplateView, FormView, DetailView
 
 from forms import ApplicationForm
@@ -65,3 +68,18 @@ class DetailsView(DetailView):
             app_id = kwargs['pk']
         context['application']  = Application.objects.get(id=app_id)
         return context
+
+class StatusView(DetailView):
+    model = Application
+
+    def post(self, request, *args, **kwargs):
+        app_id = request.POST.get('app_id')
+        app_obj = Application.objects.get(id=int(app_id))
+        app_obj.accepted = app_obj.accepted ^ True
+        app_obj.save()
+        if app_obj.accepted:
+            msg = "Application Accepted"
+        else:
+            msg = "Application Rejected"
+        return HttpResponse(json.dumps({'success':'True', 'message': msg}), content_type='application/json')
+

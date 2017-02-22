@@ -25,7 +25,8 @@
 			        <td>{{ application.last_name }}</td>
 			        <td>{{ application.current_company }}</td>
 			        <td>{{ application.skills }}</td>
-			        <td><a href="{% url 'details' application.id %}">Detail</a></td>
+			        <td><a href="{% url 'details' application.id %}">Detail</a> /
+			        <a class="status" href="" id="{{ application.id }}">{% if application.accepted %}Reject{% else %}Accept{% endif %}</td>
 		        </tr>
 	        	{% endfor %}
 	        </tbody>
