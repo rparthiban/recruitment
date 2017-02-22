@@ -25,7 +25,7 @@
 			        <td>{{ application.last_name }}</td>
 			        <td>{{ application.current_company }}</td>
 			        <td>{{ application.skills }}</td>
-			        <td>test</td>
+			        <td><a href="{% url 'details' application.id %}">Detail</a></td>
 		        </tr>
 	        	{% endfor %}
 	        </tbody>

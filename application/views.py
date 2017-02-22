@@ -51,3 +51,17 @@ class CreateView(FormView):
         context['form'] = form
         form.save()
         return super(CreateView, self).form_valid(form)
+
+class DetailsView(DetailView):
+    model = Application
+    template_name = "details.html"
+
+    def get_context_data(self,*args,**kwargs):
+        user_data_list = []
+        context = super(DetailsView, self).get_context_data(**kwargs)
+        if 'object' in kwargs:
+	        app_id = kwargs['object'].id
+        else:
+            app_id = kwargs['pk']
+        context['application']  = Application.objects.get(id=app_id)
+        return context

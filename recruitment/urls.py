@@ -17,7 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views
 
-from application.views import IndexView, CreateView 
+from application.views import IndexView, CreateView, DetailsView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^create/$', CreateView.as_view(), name='create'),
     url(r'^login/$', views.login, {'template_name': 'login.html'}, name='login'),
     url(r'^logout/$', views.logout, {'next_page': '/'}, name='logout'),
+    url(r'^details/(?P<pk>\d+)$', DetailsView.as_view(), name="details"),
 ]
