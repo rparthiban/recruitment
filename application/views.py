@@ -38,14 +38,14 @@ class CreateView(FormView):
             return self.form_invalid(form, **kwargs)
 
     def form_invalid(self, form, **kwargs):
-        """Saves the form data to the database"""
+        """Return errors to the form if form is invalid"""
 
         context = self.get_context_data(**kwargs)
         context['form'] = form
         return self.render_to_response(context)
 
     def form_valid(self, form, **kwargs):
-        """Return errors to the form if form is invalid"""
+        """Saves the form data to the database"""
 
         context = self.get_context_data(**kwargs)
         context['form'] = form
