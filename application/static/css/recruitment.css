@@ -19,3 +19,7 @@ body {margin: 0px; padding:0px; background-color: #e8e8e8}
 a {text-decoration: none; color: white;}
 .details {width: 100%}
 .details a {color:blueviolet;}
+
+.infotable {border-collapse: collapse; width: 100%; border: 1px solid black;}
+.infotable th {height: 50px;}
+.infotable td, .infotable th {border: 1px solid black;}

@@ -1,14 +1,14 @@
 {%extends "base.html"%}
 
 {% block content%}
-<div class="content">
+<div class="content" align="center">
 	<div class="create">
 		<div><a href="/create"><button>New Application</button></a></div>
 		<div><p>Click the above button to post new application</p></div>
 	</div>
 	{% if request.user.is_authenticated %}
 	<div class="details">
-		<table>
+		<table class="infotable">
 			<thead>
 		        <th>Email</th>
 		        <th>First Name</th>

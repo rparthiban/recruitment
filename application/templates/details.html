@@ -1,10 +1,10 @@
 {%extends "base.html"%}
 
 {% block content%}
-<div class="content">
+<div class="content" align="center">
 	<h3>Application Detail View:</h3>
   <div class="col">
-    <table>
+    <table class="infotable">
     	<thead>
     		<th colspan="2">Application</th>
     	</thead>
@@ -32,7 +32,7 @@
 			<td><label>Skills:</label></td>
 			<td>{{ application.skills }}</td>
 		</tr>
-    <table>
+    </table>
   </div>
 </div>
 {% endblock %}
