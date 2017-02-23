@@ -4,8 +4,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import TemplateView, FormView, DetailView
 
-from forms import ApplicationForm
-from models import Application
+from .forms import ApplicationForm
+from .models import Application
 
 # Create your views here.
 class IndexView(TemplateView):
